@@ -26,6 +26,12 @@ export default function TextForm(props) {
         props.showAlert("Text Cleared!", "success");
     }
 
+    const handleExtraSpaces = () => {
+        let newText = text.split(/[ ]+/);
+        setText(newText.join(" "));
+        props.showAlert("Extra spaces removed!", "success");
+    }
+
     // const handleCopy =() =>{
     
     //     navigator.clipboard.writeText(text.value);
@@ -42,6 +48,8 @@ export default function TextForm(props) {
      <button disabled={text.length===0} className='btn btn-primary mx-2 my-1' onClick={handleUpClick}>Convert to Uppercase</button>
      <button disabled={text.length===0} className='btn btn-primary mx-2 my-1' onClick={handleLoClick}>Convert to Lowercase</button>
      <button disabled={text.length===0} className='btn btn-primary mx-2 my-1' onClick={handleClearClick}>Clear</button>
+     <button disabled={text.length===0} className='btn btn-primary mx-2 my-1' onClick={handleExtraSpaces}>Remove Extra Spaces</button>
+
      {/* <button disabled={text.length===0} className='btn btn-primary mx-2 my-1' onClick={handleCopy}>Copy</button> */}
 
 </div>
